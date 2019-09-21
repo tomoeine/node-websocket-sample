@@ -1,0 +1,28 @@
+<html lang="ja">
+<head>
+    <title>WebSocket Demo</title>
+</head>
+<body>
+
+<input type="text" id="message" />
+<input type="button" id="send-button" value="Send" />
+
+<h5>Received Message</h5>
+<p id="received-message"></p>
+
+<script>
+  const sock = new WebSocket('ws://127.0.0.1:8080');
+
+  sock.addEventListener('message',function(e){
+    document.getElementById('received-message').innerHTML = e.data
+    console.log(e.data);
+  });
+
+  document.addEventListener('DOMContentLoaded',function(e){
+    document.getElementById('send-button').addEventListener('click',function(e){
+      sock.send(document.getElementById('message').value);
+    });
+  });
+</script>
+</body>
+</html>
