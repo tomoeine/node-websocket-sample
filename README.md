@@ -12,7 +12,7 @@ cd client && yarn install && cd ../
 // Run WebSocket server
 cd server && node index.js
 ```
-```
+```sh
 // Run express server for client
 cd client && node app.js
 ```
